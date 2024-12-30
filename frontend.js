@@ -16,12 +16,12 @@ function SplitAndCount() {
     let sortedObject = Object.fromEntries(
         Object.entries(keys_map).sort(([, a], [, b]) => b - a)
     );
-    console.log(sortedObject)
+    
     while(document.getElementById('view').lastElementChild) {
         document.getElementById('view').removeChild(document.getElementById('view').lastChild);
     }
     res = document.createElement("div");
-    res.innerHTML = "<br> words count<br>" + JSON.stringify(keys_map);
+    res.innerHTML = "<br> words count<br>" + JSON.stringify(sortedObject);
     res.setAttribute("id", "child");
     document.getElementById('view').appendChild(res);
 
@@ -37,7 +37,9 @@ function SplitAndCount() {
         let count = word ? word : 0;<br>
         keys_map[splited_words[i]] = count + 1;}
     <br>
-    JSON.stringify(keys_map);
+    let sortedObject = Object.fromEntries(<br>
+        Object.entries(keys_map).sort(([, a], [, b]) => b - a));<br>
+    JSON.stringify(sortedObject);
     `;
     code.setAttribute("id", "code");
     document.getElementById('view').appendChild(code);
