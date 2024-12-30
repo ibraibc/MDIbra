@@ -12,7 +12,11 @@ function SplitAndCount() {
         let count = word ? word : 0;
         keys_map[splited_words[i]] = count + 1;
     }
-    console.log(keys_map);
+    
+    let sortedObject = Object.fromEntries(
+        Object.entries(keys_map).sort(([, a], [, b]) => b - a)
+    );
+    console.log(sortedObject)
     while(document.getElementById('view').lastElementChild) {
         document.getElementById('view').removeChild(document.getElementById('view').lastChild);
     }
